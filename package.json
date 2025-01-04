@@ -1,0 +1,24 @@
+{
+  "name": "purpleplanen-nav",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "PurplePlanen的个人导航网站",
+  "private": true,
+  "scripts": {
+    "dev": "vitepress dev docs --port=8732",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs --port 8730",
+    "prepare": "husky install",
+    "format": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/purpleplanen/purpleplanen.github.io.git"
+  },
+  "author": "purpleplanen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/purpleplanen/purpleplanen.github.io/issues"
+  },
+  "homepage": "https://purpleplanen.github.io/"
+}
