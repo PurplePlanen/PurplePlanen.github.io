@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/purpleplanen/purpleplanen.github.io/issues"
   },
-  "homepage": "https://purpleplanen.github.io/"
+  "homepage": "https://purpleplanen.github.io/",
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
 }

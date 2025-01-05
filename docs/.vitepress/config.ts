@@ -6,7 +6,7 @@ import { head, nav, sidebar } from './configs'
 
 export default defineConfig({
   outDir: '../dist',
-  base: '/',
+  base: '/purpleplanen.github.io/',
 
   lang: 'zh-CN',
   title: 'PurplePlanen',

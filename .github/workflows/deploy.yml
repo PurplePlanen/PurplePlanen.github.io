@@ -52,16 +52,14 @@ jobs:
       # 打包静态文件
       - name: Build
         env:
-          APP_BASE_PATH: '/'
+          APP_BASE_PATH: '/purpleplanen.github.io/'
         run: pnpm install && pnpm run build
 
       # 部署
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          full_commit_message: Deploying to gh-pages from @ ${{ github.sha }} 🚀
-          # GitHub Pages 读取的分支
+          full_commit_message: Deploying to gh-pages from @ ${{ github.sha }} 
           publish_branch: gh-pages
-          # 静态文件所在目录
           publish_dir: dist
