@@ -67,12 +67,13 @@ export default defineConfig({
       badgeId: 'purpleplanen.nav',
     },
 
-    comment: {
-      repo: 'purpleplanen/purpleplanen.github.io',
-      repoId: 'R_kgDONKvM1A',
-      category: 'Announcements',
-      categoryId: 'DIC_kwDONKvM1M4Clt7j',
-    },
+    // 暂时注释掉评论配置
+    // comment: {
+    //   repo: 'purpleplanen/purpleplanen.github.io',
+    //   repoId: 'R_kgDONKvM1A',
+    //   category: 'Announcements',
+    //   categoryId: 'DIC_kwDONKvM1M4Clt7j',
+    // },
   },
 
   vite: {
