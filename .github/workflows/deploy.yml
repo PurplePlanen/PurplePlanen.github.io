@@ -8,10 +8,6 @@ on:
   push:
     branches:
       - main
-    # 只在下列路径变更时触发
-    paths:
-      - 'docs/**'
-      - 'package.json'
 
 # 设置权限
 permissions:
@@ -26,9 +22,6 @@ jobs:
   build-and-deploy:
     # 服务器环境：最新版 ubuntu
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [20]
     steps:
       # 拉取代码
       - name: Checkout
@@ -38,28 +31,30 @@ jobs:
 
       # 安装 pnpm
       - name: Install pnpm
-        uses: pnpm/action-setup@v3
+        uses: pnpm/action-setup@v2
         with:
           version: 8
 
       # 设置 node 版本
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 20
           cache: 'pnpm'
+
+      # 安装依赖
+      - name: Install Dependencies
+        run: pnpm install --no-frozen-lockfile
 
       # 打包静态文件
       - name: Build
-        env:
-          APP_BASE_PATH: '/purpleplanen.github.io/'
-        run: pnpm install && pnpm run build
+        run: pnpm run build
 
       # 部署
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          full_commit_message: Deploying to gh-pages from @ ${{ github.sha }} 
           publish_branch: gh-pages
-          publish_dir: dist
+          publish_dir: ./dist
+          force_orphan: true
